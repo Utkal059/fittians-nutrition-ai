@@ -1,72 +1,58 @@
-# AI Food Tracker
+# Fittians Nutrition AI 🥗🤖
 
-A full-stack mobile application that tracks meals, calories, and macronutrients from food photos using vision models. Built with React Native (Expo) and FastAPI.
+An AI-powered nutrition and food tracking platform designed to help users monitor their diet, log meals, and analyze nutritional stats effortlessly.
 
-## Features
+---
 
-- **Photo Meal Recognition**: Snap or upload a photo to detect food items, estimated weight in grams, and complete macro breakdown (calories, protein, carbs, fat, fiber).
-- **Portion Adjustments**: Fine-tune grams or servings with real-time recalculation.
-- **Daily Dashboard**: Visual calorie ring, macro target bars, hydration tracker, and grouped meal logs (Breakfast, Lunch, Snack, Dinner).
-- **Biometric Calculations**: Mifflin-St Jeor equation calculates personalized BMR, TDEE, and macro goals from user profile.
-- **Theme Studio**: 4 color themes (Cyber Violet, Sunset Coral, Ocean Cobalt, Neon Emerald) with Dark/Light modes.
+## 🏗️ Project Architecture
 
-## Tech Stack
-
-- **Mobile**: React Native, Expo SDK 57, Expo Router, TypeScript, React Native SVG
-- **Backend**: Python 3.10+, FastAPI, SQLAlchemy (async), SQLite / PostgreSQL, Pydantic v2
-- **Vision Models**: Google Gemini / OpenAI vision models with deterministic fallback
-
-## Quick Start
-
-### 1. Backend
-
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```text
+fittians-nutrition-ai/
+├── backend/            # Backend services and API
+├── mobile/             # React Native / Mobile client code
+│   ├── services/       # API integration services (Food, Water, Dashboard, etc.)
+│   ├── types/          # TypeScript interface definitions
+│   └── utils/          # Helper utilities and dataset configurations
+└── docker-compose.yml  # Containerization & orchestration setup
 ```
 
-Interactive API documentation will be available at `http://localhost:8000/docs`.
+---
 
-### 2. Mobile App
+## 🚀 Features
 
-```bash
-cd mobile
-npm install
-npx expo start
-```
+- **AI Food Tracking:** Automatically parse and analyze meal data.
+- **Water & Hydration Monitoring:** Track daily water intake and goals.
+- **Dashboard Analytics:** Comprehensive view of daily nutrient intake and progress.
+- **Modular Services:** Clean TypeScript architecture separating services, utilities, and UI components.
 
-Open the Expo Go app on your physical device and scan the terminal QR code, or press:
-- `a` to launch Android emulator
-- `i` to launch iOS simulator
-- `w` to run web preview
+---
 
-### 3. Standalone Android APK
+## 🛠️ Getting Started
 
-Pre-built Android `.apk` binaries are automatically generated and available on the [Releases](https://github.com/charancharan000/ai-food-tracker/releases) page.
+### Prerequisites
 
-## Configuration
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [Docker](https://www.docker.com/) & Docker Compose
 
-### Backend (`backend/.env`)
+### Local Setup
 
-```env
-SECRET_KEY=generate_a_random_secret_key_here
-DATABASE_URL=sqlite+aiosqlite:///./nutriscan.db
-AI_PROVIDER=gemini
-AI_API_KEY=your_gemini_or_openai_api_key
-AI_MODEL=gemini-2.0-flash
-```
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Utkal059/fittians-nutrition-ai.git](https://github.com/Utkal059/fittians-nutrition-ai.git)
+   cd fittians-nutrition-ai
+   ```
 
-## Testing
+2. **Run with Docker Compose:**
+   ```bash
+   docker-compose up --build
+   ```
 
-```bash
-pytest backend/tests
-npm test --prefix mobile
-```
+3. **Run Services Individually:**
+   - **Backend:** Navigate to `backend/` and run `npm install && npm start`
+   - **Mobile:** Navigate to `mobile/` and run `npm install && npm start`
 
-## License
+---
 
-MIT
+## 👤 Author
+
+- **Utkal Singh** - [@Utkal059](https://github.com/Utkal059)
